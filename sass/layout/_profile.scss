@@ -1,0 +1,75 @@
+
+@import "base/vars";
+@import "base/mixins";
+
+.profile {
+    @extend .clearfix;
+    margin: 1em;
+    
+    .profile-pic {
+        width: 45%;
+        float: left;
+        position: relative;
+        
+        img {
+            max-width: 100%;
+        }
+        
+        figcaption {
+            padding: 0.5em;
+            font-size: 0.75em;
+            font-style: italic;
+            text-align: right;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            @include text-shadow(0 0 0.1em #151515);
+        }
+    }
+    
+    .writeup {
+        width: 55%;
+        float: left;
+        padding: 0 1em 0.5em 1em;
+        
+        h3 {
+            margin: 1em 0 0 0;
+            font-size: 2em;
+            font-family: $font-stack-cabin-condensed;
+        }
+        
+        h4 {
+            margin: 0 0 2em 0;
+            font-size: 1.2em;
+            font-weight: 100;
+        }
+        
+        strong {
+            color: $color-brand-emphasis;
+        }
+    }
+    
+    .social-media {
+        font-size: 3em;
+    }
+    
+    @media all and (max-width: $breakpoint-medium) {
+        .writeup {
+            h3 {
+                margin-top: 0;
+            }
+        }
+    }
+    
+    @media all and (max-width: $breakpoint-small) {
+        .profile-pic, .writeup {
+            width: 100%;
+            float: none;
+        }
+        .writeup {
+            h3 {
+                margin-top: 1em;
+            }
+        }
+    }
+}

@@ -8,17 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <meta name="description" content="Live music photography by Jensen Ching.">
-    <meta property="og:title" content="Live Music Photography by Jensen Ching">
+    <meta property="og:title" content="Photography Portfolio by Jensen Ching">
     <meta property="og:type" content="website">
     <meta property="og:image" content="http://photos.jensenching.com/img/og-thumb.jpg">
-    <meta property="og:description" content="Capturing the energy of live music through the lens.">
-    <title>Home - Jensen Ching Photography</title>
+    <meta property="og:description" content="Photos from live music events, gigs, and concerts.">
+    <title>Portfolio - Jensen Ching Photography</title>
     <link rel="author" href="https://plus.google.com/u/0/102751634159519095699">
     
     <!-- Google Fonts or other Web Font providers -->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300|Rokkitt:400|Cabin+Condensed:400' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/colorbox.css">
     <link rel="stylesheet" href="css-gen/main.css">
     
     <!-- TODO Development version of modernizr. Generate site-specific version for production. -->
@@ -41,55 +42,55 @@
         </nav>
     </header>
     
+    <section class="albums" id="albums" style="display: none;" data-bind="foreach: {data:albums}, fadeVisible: isVisible">
+        <article data-bind="click: showAlbum">
+            <img data-bind="attr: {src:albumImage}" />
+            <h3 data-bind="text: data.name"></h3>
+        </article>
+    </section>
     
-    <section class="hero-container">
-        <section class="hero-units">
-            <article class="hero-unit" data-image="1">
-                <img src="img/test/sample-2048-1356.jpg" />
-                <a class="info-handle"><i class="icon-info-sign"></i></a>
-                <figcaption>
-                    Ignite Music Festival 2013 at Republic Polytechnic
-                </figcaption>
-            </article>
-            <article class="hero-unit" data-image="2">
-                <img src="img/test/sample-636-960.jpg" />
-                <a class="info-handle"><i class="icon-info-sign"></i></a>
-                <figcaption>
-                    Ignite Music Festival 2013 at Republic Polytechnic
-                </figcaption>
-            </article>
-            <article class="hero-unit" data-image="3">
-                <img src="img/test/thexx-01.jpg" />
-                <a class="info-handle"><i class="icon-info-sign"></i></a>
-                <figcaption>
-                    The XX - Live at the Star Theatre
-                </figcaption>
-            </article>
-            <article class="hero-unit" data-image="4">
-                <img src="img/test/thexx-02.jpg" />
-                <a class="info-handle"><i class="icon-info-sign"></i></a>
-                <figcaption>
-                    The XX - Live at the Star Theatre
-                </figcaption>
+    <section id="albumPlaceholder" style="visibility: hidden"></section>
+    
+    <section class="album" data-template="album" style="display: none;" data-bind="fadeVisible: isVisible">
+        <div class="loading" data-bind="visible: !hasLoaded()">
+            <span data-bind="text: loadingText"></span>
+        </div>
+        <div class="loaded" data-bind="fadeVisible: hasLoaded" style="display: none;">
+        <section class="heading">
+            <section class="back">
+                <a href="javascript:void(0)" data-bind="click: goBack"><i class="icon-long-arrow-left"></i>&nbsp;<span>back to albums</span></a>
+            </section>
+            <h3 data-bind="text: data.name"></h3>
+        </section>
+        <section class="photos" data-bind="foreach: photos">
+            <article class="item">
+                <a data-bind="attr: {href:fullUrl,'data-image-id':theNumber}">
+                    <img data-bind="attr: {src:thumbUrl}" />
+                </a>
             </article>
         </section>
+        <section class="footer">
+            <p class="gear-info" data-bind="text: data.gearInfo"></p>
+        </section>
+        </div>
     </section>
     
-    <!-- TODO
-    <section class="social-media">
-        <ul>
-            <li><a href="https://www.facebook.com/jensen.ching"><i class="icon-facebook-sign"></i></a></li>
-            <li><a href="https://plus.google.com/u/0/102751634159519095699/posts"><i class="icon-google-plus-sign"></i></a></li>
-            <li><a href="http://instagram.com/jenoosia"><i class="icon-instagram"></i></a></li>
-        </ul>
-    </section>
-    -->
+    <section class="lightbox">
         
+    </section>
+    
     </div>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="js/main/hero-section.js"></script>
+    <script src="js/vendor/knockout.js"></script>
+    <script src="js/vendor/jquery.history.js"></script>
+    <script src="js/vendor/jquery.colorbox-min.js"></script>
+    <script src="js/dist/masonry.pkgd.min.js"></script>
+    <script src="js/dist/imagesloaded.pkgd.min.js"></script>
+    
+    <script src="js/main/gallery-data.js"></script>
+    <script src="js/main/portfolio.js"></script>
     
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

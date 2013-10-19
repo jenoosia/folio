@@ -1,0 +1,83 @@
+
+@import "base/vars";
+
+$font-header-general: $font-stack-lato;
+$font-header-main: $font-stack-cabin-condensed;
+$font-header-sub:  $font-stack-lato;
+
+$color-header-hover: gray;
+
+$header-height: 5em;
+
+header {
+    font-family: $font-header-general;
+    height: $header-height;
+    border-bottom: $border-general; 
+    
+    a {
+        color: $color-brand-text;
+        &:hover {
+            color: $color-header-hover;
+        }
+    }
+    
+    .heading {
+        float: left;
+        margin: 0.5em 1em;
+        line-height: 1;
+        
+        h1 {
+            font-family: $font-header-main;
+            margin: 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2.5em;
+            font-weight: normal;
+        }
+        
+        h2 {
+            font-family: $font-header-sub;
+            margin: 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            font-weight: normal;
+        }
+    }
+    
+    nav {
+        float: right;
+        height: $header-height;
+        line-height: $header-height;
+        
+        a {
+            display: inline-block;
+            border-left: $border-general;
+            padding: 0 1.5em;
+            text-transform: uppercase;
+            font-size: 1.2em;
+        }
+    }
+    
+    @media all and (max-width: $breakpoint-small) {
+        height: $header-height + ($header-height / 2) - 0.4em;
+        
+        .heading, nav {
+            float: none;
+        }
+        
+        .heading {
+            margin: 0 0 0.5em 0;
+        }
+        
+        nav {
+            height: $header-height / 2;
+            line-height: $header-height / 2;
+            text-align: center;
+            border-top: $border-general;
+            a {
+                border-right: $border-general;
+            }
+        }
+    }
+}

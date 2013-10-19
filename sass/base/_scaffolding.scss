@@ -1,0 +1,52 @@
+
+@import "base/vars";
+@import "base/mixins";
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    color: $color-brand-text;
+    background: $color-brand-bg;
+    font-family: $font-stack-lato;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
+button {
+    outline: none;
+}
+
+a {
+    border: 0;
+    border-style: none;
+    outline: 0;
+    text-decoration: none;
+    cursor: pointer;
+    color: $color-brand-link;
+    @include prefixed(transition, color 0.4s ease-in-out);
+    
+    &:hover {
+        color: $color-brand-link-hover;
+    }
+}
+
+img {
+    border: 0;
+    border-style: none;
+    outline: 0;
+}
+
+ul.horizontal {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+        display: inline-block;
+    }
+}

@@ -14,6 +14,7 @@ module.exports = function(grunt) {
         copy: {
             build: {
                 files: [
+                    //JS
                     { expand: true, cwd: '<%=jsBowerDir %>requirejs/', src: ['require.js'], dest: '<%=jsVendorDir %>', filter: 'isFile' },
                     { expand: true, cwd: '<%=jsBowerDir %>handlebars/', src: ['handlebars.runtime.js'], dest: '<%=jsVendorDir %>', filter: 'isFile' },
                     { expand: true, cwd: '<%=jsBowerDir %>jquery/', src: ['jquery.min.js', 'jquery-migrate.min.js'], dest: '<%=jsVendorDir %>', filter: 'isFile' },
@@ -21,7 +22,14 @@ module.exports = function(grunt) {
                     { expand: true, cwd: '<%=jsBowerDir %>knockout.js/', src: ['knockout.js'], dest: '<%=jsVendorDir %>', filter: 'isFile' },
                     { expand: true, cwd: '<%=jsBowerDir %>zepto/', src: ['zepto.min.js'], dest: '<%=jsVendorDir %>', filter: 'isFile' },
                     { expand: true, cwd: '<%=jsBowerDir %>modernizr/', src: ['modernizr.js'], dest: '<%=jsVendorDir %>', filter: 'isFile' },
-                    { expand: true, cwd: '<%=jsBowerDir %>underscore/', src: ['underscore-min.js'], dest: '<%=jsVendorDir %>', filter: 'isFile' }
+                    { expand: true, cwd: '<%=jsBowerDir %>underscore/', src: ['underscore-min.js'], dest: '<%=jsVendorDir %>', filter: 'isFile' },
+                    { expand: true, cwd: '<%=jsBowerDir %>jquery-colorbox/', src: ['jquery.colorbox-min.js'], dest: '<%=jsVendorDir %>', filter: 'isFile' },
+                    { expand: true, cwd: '<%=jsBowerDir %>history.js/scripts/bundled/html4+html5/', src: ['jquery.history.js'], dest: '<%=jsVendorDir %>', filter: 'isFile' },
+                    //CSS
+                    { expand: true, cwd: '<%=jsBowerDir %>normalize-css/', src: ['normalize.css'], dest: '<%=sassDir %>vendor/', 
+                      rename: function(dest, src) { return dest + '_normalize.scss'; }, filter: 'isFile' },
+                    { expand: true, cwd: '<%=jsBowerDir %>font-awesome/css/', src: ['font-awesome.min.css'], dest: '<%=rootDir %>css/', filter: 'isFile' },
+                    { expand: true, cwd: '<%=jsBowerDir %>font-awesome/font/', src: ['**'], dest: '<%=rootDir %>font/', filter: 'isFile' },
                 ]
             }
         },

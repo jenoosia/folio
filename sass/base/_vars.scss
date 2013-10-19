@@ -1,15 +1,23 @@
-$thin: 300;
-$regular: 400;
-$bold: 600;
-
 $base-font-size: 16px;
-$base-line-height: 1.4;  
+$base-line-height: 1.4;
 
-$serif-font: 'Alegreya', 'Georgia', serif;
-$sans-font: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-stack-alegreya: 'Alegreya', 'Georgia', serif;
+$font-stack-rokkitt: 'Rokkitt', 'Georgia', serif;
+$font-stack-source-sans: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-stack-lato: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$font-stack-cabin-condensed: 'Cabin Condensed', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
-$header-font: $serif-font;
-$content-font: $serif-font;
+$color-brand-bg: #1D242B;
+$color-brand-text: #FFFFFF;
+$color-brand-link: #7ED0FF;
+$color-brand-link-hover: #FFC0C0;
+$color-brand-emphasis: #FFC0C0;
+$color-brand-deemphasis: #C9C9C9;
+$color-brand-border: #AAAAAA;
 
-$dark-text-color: #333333;
-$light-text-color: #FFFFFF;
+$border-general: 0.1em solid $color-brand-border;
+
+$site-max-width: 75em;
+
+$breakpoint-small: 36em;
+$breakpoint-medium: 50em;

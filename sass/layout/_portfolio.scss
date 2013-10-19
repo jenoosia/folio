@@ -1,0 +1,127 @@
+
+@import "base/vars";
+@import "base/mixins";
+
+.albums {
+    @extend .clearfix;
+    
+    article {
+        cursor: pointer;
+        width: 31%;
+        float: left;
+        text-align: center;
+        margin: 1%;
+        vertical-align: bottom;
+        
+        img {
+            max-width: 100%;
+            max-height: 15em;
+            border: 0.2em solid $color-brand-border;
+            @include prefixed(transition, all 0.4s ease-in-out);
+        }
+        
+        h3 {
+            margin: 0.3em 0;
+            font-family: $font-stack-cabin-condensed;
+            font-weight: bold;
+            font-size: 1em;
+            @include prefixed(transition, all 0.4s ease-in-out);
+        }
+        
+        &:hover {
+            img {
+                border-color: $color-brand-link;
+            }
+            h3 {
+                color: $color-brand-link;
+            }
+        }
+    }
+    
+    @media all and (max-width: $breakpoint-medium) {
+        article {
+            width: 47%;
+        }
+    }
+    
+    @media all and (max-width: $breakpoint-small) {
+        article {
+            width: 98%;
+        }
+    }
+}
+
+/* TODO optimize for no-js browsers? */
+.no-js {
+    .album .item {
+        width: 100%;
+    }
+}
+
+
+.album {
+    @extend .clearfix;
+    width: 95%;
+    margin: 0 auto;
+    
+    .loading {
+        font-size: 5em;
+        font-weight: 100;
+        text-align: center;
+        margin: 2em 0;
+    }
+    
+    .heading {
+        .back {
+            margin-top: 1em;
+        }
+        h3 {
+            font-size: 1.75em;
+            margin: 0.25em 0 0.5em 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+    
+    .photos {
+        margin: 1em 0;
+    }
+    
+    .footer {
+        .gear-info {
+            text-align: center;
+            font-size: 0.85em;
+            color: $color-brand-deemphasis;
+        }
+    }
+    
+    .item {
+        display: inline-block;
+        cursor: pointer;
+        width: 24%;
+        margin: 0.2em 0;
+        border: $border-general;
+        @include prefixed(transition, all 0.25s ease-in-out);
+        
+        img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        
+        &:hover {
+            border: 0.3em solid $color-brand-link;
+        }
+    }
+    
+    @media all and (max-width: $breakpoint-medium) {
+        .item {
+            width: 32%;
+        }
+    }
+    
+    @media all and (max-width: $breakpoint-small) {
+        .item {
+            width: 48%;
+        }
+    }
+}

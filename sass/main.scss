@@ -1,9 +1,29 @@
 
+@import "compass";
+
+@import "vendor/normalize";
+
 @import "base/vars";
 @import "base/mixins";
+@import "etc/util";
 
 @import "base/scaffolding";
 @import "etc/util";
 
-@import "layout/main-layout"; 
+@import "layout/main-header"; 
+@import "layout/hero-section"; 
+@import "layout/profile";
+@import "layout/portfolio";
+
+.container {
+    max-width: $site-max-width;
+    margin: 0 auto;
+}
+
+.the404 {
+    text-align: center;
+    img {
+        max-width: 95%;
+    }
+}
  
