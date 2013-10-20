@@ -1,19 +1,35 @@
 $base-font-size: 16px;
 $base-line-height: 1.4;
 
-$font-stack-alegreya: 'Alegreya', 'Georgia', serif;
+$font-stack-playfair-display: 'Playfair Display', 'Georgia', serif;
+$font-stack-lato: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
 $font-stack-rokkitt: 'Rokkitt', 'Georgia', serif;
 $font-stack-source-sans: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-$font-stack-lato: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 $font-stack-cabin-condensed: 'Cabin Condensed', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
-$color-brand-bg: #1D242B;
-$color-brand-text: #FFFFFF;
-$color-brand-link: #7ED0FF;
-$color-brand-link-hover: #FFC0C0;
-$color-brand-emphasis: #FFC0C0;
-$color-brand-deemphasis: #C9C9C9;
+$color-very-light-gray: #F8F8F8;
+$color-light-gray: #EEEEEE;
+$color-dark-gray: #2C2C2C;
+$color-baby-blue: #7ED0FF;
+$color-fb-blue: #0F7BB9;
+$color-fb-blue-highlight: #005A8D;
+$color-gplus-red: #C00202;
+$color-gplus-red-highlight: #A80606;
+$color-instagram: #815419;
+$color-instagram-highlight: #4D3210;
+$color-pink: #FFC0C0;
+$color-rusty-red: #881F1F;
+
+$color-brand-bg: $color-very-light-gray;
+$color-brand-text: $color-dark-gray;
+$color-brand-link: $color-fb-blue;
+$color-brand-link-hover: $color-rusty-red;
+$color-brand-emphasis: $color-rusty-red;
+$color-brand-deemphasis: #555555;
 $color-brand-border: #AAAAAA;
+$color-brand-dark-back: #151515;
+$color-brand-dark-back-text: #FFFFFF;
 
 $border-general: 0.1em solid $color-brand-border;
 

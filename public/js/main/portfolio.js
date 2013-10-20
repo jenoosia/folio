@@ -92,6 +92,10 @@
             
             //Hide the current expanded album if there is one.
             if (s.currentAlbum != null) {
+                //TODO fix "back" button problem for the lightbox.
+                // if (!imageId && s.currentAlbum.lightOpen) {
+                    // $.colorbox.close();
+                // }
                 if (s.currentAlbum.data.id == albumId) {
                     return;
                 }
@@ -132,8 +136,8 @@
             s.isVisible(true);
         }
         
-        s.historyPush = function(id) {
-            History.pushState(null, '', id ? '?album=' + id : '?');
+        s.historyPush = function(id, title) {
+            History.pushState(null, title ? title : 'Portfolio - Jensen Ching Photography', id ? '?album=' + id : '?');
         }
     };
     
@@ -147,7 +151,7 @@
             jnz.GalleryConst.defaultExt;
         
         s.showAlbum = function() {
-            s.parent.historyPush(s.data.id);
+            s.parent.historyPush(s.data.id, s.data.name + ' - Jensen Ching Photography');
         };
     };
     
@@ -173,6 +177,7 @@
             s.parent.historyPush();
         };
         
+        s.lightOpen = false;
         s.lightbox = null;
         
         s.navigateToImage = function(imageId) {
@@ -194,8 +199,19 @@
                 s.lightbox = $album.find('.photos>.item>a').colorbox({
                     rel: s.data.id,
                     maxWidth: '95%',
-                    maxHeight: '95%'
+                    maxHeight: '95%',
+                    onComplete: function() {
+                        s.lightOpen = true;
+                        History.pushState(null, s.data.name + ' - Jensen Ching Photography', 
+                        '?album=' + s.data.id + '&image=' + $(this).attr('data-image-id'));
+                    },
+                    onClosed: function() {
+                        s.lightOpen = false;
+                        History.pushState(null, s.data.name + ' - Jensen Ching Photography',
+                        '?album=' + s.data.id);
+                    }
                 });
+                
                 s.navigateToImage(imageId);
             }).progress(function(instance, image) {
                 s.numLoaded(s.numLoaded() + 1);

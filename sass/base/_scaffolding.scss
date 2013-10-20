@@ -27,7 +27,7 @@ a {
     text-decoration: none;
     cursor: pointer;
     color: $color-brand-link;
-    @include prefixed(transition, color 0.4s ease-in-out);
+    @include prefixed(transition, all 0.3s ease-in-out);
     
     &:hover {
         color: $color-brand-link-hover;

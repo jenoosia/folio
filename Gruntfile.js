@@ -35,11 +35,18 @@ module.exports = function(grunt) {
         },
         uglify: {
             options: {},
-            build: {
+            prebuild: {
                 files: {
                     '<%=jsVendorDir %>require.min.js': ['<%=jsVendorDir %>require.js'],
                     '<%=jsVendorDir %>modernizr.dev.min.js': ['<%=jsVendorDir %>modernizr.js'],
                     '<%=jsVendorDir %>handlebars.runtime.min.js': ['<%=jsVendorDir %>handlebars.runtime.js']
+                }
+            },
+            build: {
+                files: {
+                    '<%=jsBuildDir %>gallery-data.min.js': ['<%=jsMainDir %>gallery-data.js'],
+                    '<%=jsBuildDir %>hero-section.min.js': ['<%=jsMainDir %>hero-section.js'],
+                    '<%=jsBuildDir %>portfolio.min.js': ['<%=jsMainDir %>portfolio.js']
                 }
             }
         },
@@ -48,12 +55,18 @@ module.exports = function(grunt) {
             compass: {
                 files: ['<%=sassDir %>**/*.scss'],
                 tasks: ['compass:dev']
+            }, 
+            uglify: {
+                files: ['<%=jsMainDir %>*.js'],
+                tasks: ['uglify:build']
             }
         },
         
         rootDir: 'public/',
         jsBowerDir: 'bower_components/',
         jsDir: '<%= rootDir %>js/',
+        jsBuildDir: '<%= jsDir %>build/',
+        jsMainDir: '<%= jsDir %>main/',
         jsDistDir: '<%= jsDir %>dist/',
         jsVendorDir: '<%= jsDir %>vendor/',
         sassDir: 'sass/'
@@ -67,7 +80,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-compass');
     
-    grunt.registerTask('build', ['copy:build', 'uglify:build']);
+    grunt.registerTask('build', ['copy:build', 'uglify:prebuild', 'uglify:build']);
     
     grunt.registerTask('default', ['watch']);
 };

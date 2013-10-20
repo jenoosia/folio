@@ -18,12 +18,19 @@
         figcaption {
             padding: 0.5em;
             font-size: 0.75em;
-            font-style: italic;
+            font-weight: 300;
             text-align: right;
             position: absolute;
             bottom: 0;
             right: 0;
+            color: $color-brand-dark-back-text;
             @include text-shadow(0 0 0.1em #151515);
+            a {
+                color: $color-baby-blue;
+                &:hover {
+                    color: $color-pink;
+                }
+            }
         }
     }
     
@@ -35,13 +42,14 @@
         h3 {
             margin: 1em 0 0 0;
             font-size: 2em;
-            font-family: $font-stack-cabin-condensed;
+            font-family: $font-stack-playfair-display;
+            font-weight: 700;
         }
         
         h4 {
             margin: 0 0 2em 0;
             font-size: 1.2em;
-            font-weight: 100;
+            font-weight: 300;
         }
         
         strong {
@@ -51,6 +59,14 @@
     
     .social-media {
         font-size: 3em;
+        
+        li {
+            margin-right: 0.25em;
+        }
+        
+        a.social-fb { color: $color-fb-blue; &:hover { color: $color-fb-blue-highlight;} }
+        a.social-gplus { color: $color-gplus-red; &:hover { color: $color-gplus-red-highlight;} }
+        a.social-instagram { color: $color-instagram; &:hover { color: $color-instagram-highlight;} }
     }
     
     @media all and (max-width: $breakpoint-medium) {

@@ -16,6 +16,7 @@
 @import "layout/portfolio";
 
 .container {
+    position: relative;
     max-width: $site-max-width;
     margin: 0 auto;
 }

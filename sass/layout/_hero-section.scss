@@ -5,13 +5,14 @@
 @import "base/mixins";
 
 .hero-container {
-    padding: 0.5em 0 0 0;
+    padding: 0.35em 0 0 0;
     text-align: center;
 }
 
 .hero-unit {
     position: relative;
-    padding: 0 0.2em;
+    display: inline-block;
+    margin: 0 0.2em;
     
     &.hide {
         opacity: 0;
@@ -20,45 +21,50 @@
     img {
         position: relative;
         max-width: 100%;
-        background: #FFFFFF;
-        padding: 0.2em;
+        // border: $border-general;
+        // border-top: 0;
+        @include box-shadow(0 0 0.35em $color-brand-dark-back);
     }
     
     .info-handle {
         cursor:pointer;
         position: absolute;
-        bottom: 0;
-        left: 50%;
-        margin-left: -0.425em;
-        padding-bottom: 0.5em;
+        bottom: 0.2em;
+        right: 0.4em;
         font-size: 2em;
-        opacity: 0.8;
+        color: $color-baby-blue;
+        @include opacity(0.8);
         @include prefixed(transition, all 0.4s ease-in-out);
         
         &:hover {
-            opacity: 1;
-        }
-        i {
-            padding: 0 0.5em;
+            color: $color-pink;
+            @include opacity(1);
         }
     }
     
     figcaption {
         position: absolute;
-        bottom: 4em;
-        left: 50%;
-        width: 30em;
-        margin-left: -15em;
-        background: #151515;
-        opacity: 0.8;
-        padding: 0.5em;
-        border: $border-general;
-        @include border-radius(4px);
-        text-align: left;
+        bottom: 2.5em;
+        right: 0.5em;
+        padding: 0.25em 0.75em 0.25em 0.75em;
+        background: $color-brand-dark-back;
+        text-align: right;
+        font-size: 1.3em;
+        color: $color-brand-dark-back-text;
+        @include opacity(0.8);
+        @include box-shadow(0 0 0 0.2em $color-brand-dark-back);
+        @include text-shadow(0 0 0.2em $color-brand-dark-back);
         @include prefixed(transition, all 0.4s ease-in-out);
         
         &.hide {
-            opacity: 0;
+            @include opacity(0);
+        }
+        
+        @media all and (max-width: $breakpoint-small) {
+            font-size: 1em;
+            position: absolute;
+            bottom: 3em;
+            right: 0.1em;
         }
     }
     

@@ -8,29 +8,28 @@
     article {
         cursor: pointer;
         width: 31%;
-        float: left;
         text-align: center;
         margin: 1%;
-        vertical-align: bottom;
+        vertical-align: top;
+        display: inline-block;
         
         img {
             max-width: 100%;
             max-height: 15em;
-            border: 0.2em solid $color-brand-border;
+            @include box-shadow(0 0 0.2em $color-brand-dark-back);
             @include prefixed(transition, all 0.4s ease-in-out);
         }
         
         h3 {
             margin: 0.3em 0;
-            font-family: $font-stack-cabin-condensed;
-            font-weight: bold;
-            font-size: 1em;
+            font-weight: 300;
+            font-size: 1.1em;
             @include prefixed(transition, all 0.4s ease-in-out);
         }
         
         &:hover {
             img {
-                border-color: $color-brand-link;
+                @include box-shadow(0 0 0.5em $color-brand-link);
             }
             h3 {
                 color: $color-brand-link;
@@ -76,7 +75,7 @@
             margin-top: 1em;
         }
         h3 {
-            font-size: 1.75em;
+            font-size: 2em;
             margin: 0.25em 0 0.5em 0;
             text-align: center;
             text-transform: uppercase;
@@ -100,7 +99,7 @@
         cursor: pointer;
         width: 24%;
         margin: 0.2em 0;
-        border: $border-general;
+        @include box-shadow(0 0 0.2em $color-brand-dark-back);
         @include prefixed(transition, all 0.25s ease-in-out);
         
         img {
@@ -109,7 +108,7 @@
         }
         
         &:hover {
-            border: 0.3em solid $color-brand-link;
+            @include box-shadow(0 0 0.5em $color-brand-link);
         }
     }
     
@@ -122,6 +121,10 @@
     @media all and (max-width: $breakpoint-small) {
         .item {
             width: 48%;
+        }
+        
+        .heading h3 {
+            font-size: 1.5em;
         }
     }
 }
