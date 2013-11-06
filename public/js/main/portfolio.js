@@ -138,6 +138,7 @@
         
         s.historyPush = function(id, title) {
             History.pushState(null, title ? title : 'Portfolio - Jensen Ching Photography', id ? '?album=' + id : '?');
+            try { ga('send', 'pageview'); } catch (e) {}
         }
     };
     
@@ -204,6 +205,7 @@
                         s.lightOpen = true;
                         History.pushState(null, s.data.name + ' - Jensen Ching Photography', 
                         '?album=' + s.data.id + '&image=' + $(this).attr('data-image-id'));
+                        try { ga('send', 'pageview'); } catch (e) {}
                     },
                     onClosed: function() {
                         s.lightOpen = false;

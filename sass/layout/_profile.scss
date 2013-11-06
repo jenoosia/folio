@@ -40,7 +40,7 @@
         padding: 0 1em 0.5em 1em;
         
         h3 {
-            margin: 1em 0 0 0;
+            margin: 0 0 0 0;
             font-size: 2em;
             font-family: $font-stack-playfair-display;
             font-weight: 700;
@@ -54,6 +54,13 @@
         
         strong {
             color: $color-brand-emphasis;
+        }
+        
+        .gear-sect {
+            font-size: 0.8em;
+            p {
+                margin: 0.5em 0;
+            }
         }
     }
     

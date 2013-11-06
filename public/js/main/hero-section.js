@@ -52,7 +52,7 @@
             //s.imageIds = shuffle(s.imageIds);
             
             s.doSlideTransition();
-            s.intervalId = setInterval(s.doSlideTransition, 4000);
+            s.intervalId = setInterval(s.doSlideTransition, 5000);
             
             $(window).resize(function() {
                 s.adjustMaxHeight();
