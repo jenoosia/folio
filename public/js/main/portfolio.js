@@ -42,6 +42,7 @@
         
         s.run = function() {
             var theState = History.getState();
+            //console.log(theState);
             
             var urlArr = theState.url.split('?');
             
@@ -93,9 +94,19 @@
             //Hide the current expanded album if there is one.
             if (s.currentAlbum != null) {
                 //TODO fix "back" button problem for the lightbox.
-                // if (!imageId && s.currentAlbum.lightOpen) {
-                    // $.colorbox.close();
-                // }
+                if (s.currentAlbum.lightOpen) {
+                    if (imageId == null || imageId == undefined) {
+                        $.colorbox.close();
+                        return;
+                    } else {
+                        s.currentAlbum.navigateToImage(imageId);
+                        return;
+                    }
+                } else {
+                    if (imageId) {
+                        s.currentAlbum.navigateToImage(imageId);
+                    }
+                }
                 if (s.currentAlbum.data.id == albumId) {
                     return;
                 }
@@ -134,12 +145,12 @@
                 s.currentAlbum = null;
             }
             s.isVisible(true);
-        }
+        };
         
         s.historyPush = function(id, title) {
             History.pushState(null, title ? title : 'Portfolio - Jensen Ching Photography', id ? '?album=' + id : '?');
-            try { ga('send', 'pageview'); } catch (e) {}
-        }
+            try { ga('send', 'event', 'albums', 'click', id); } catch (e) {}
+        };
     };
     
     jnz.AlbumCover = function(parent, data) {
@@ -205,7 +216,7 @@
                         s.lightOpen = true;
                         History.pushState(null, s.data.name + ' - Jensen Ching Photography', 
                         '?album=' + s.data.id + '&image=' + $(this).attr('data-image-id'));
-                        try { ga('send', 'pageview'); } catch (e) {}
+                        try { ga('send', 'event', 'lightbox', 'click', s.data.id, $(this).attr('data-image-id')); } catch (e) {}
                     },
                     onClosed: function() {
                         s.lightOpen = false;
@@ -225,7 +236,7 @@
         for (var i = 1; i <= s.data.totalImages; i++) {
             s.photos.push(new jnz.AlbumThumb(s, i));
         }
-    }
+    };
     
     jnz.AlbumThumb = function(parent, theNumber, data) {
         var s = this;
