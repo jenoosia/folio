@@ -1,3 +1,5 @@
+*OBSOLETE*
+
 # Progenitor
 
 Progenitor is a baseline template with tooling for a modern front-end web development 
